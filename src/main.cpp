@@ -228,7 +228,7 @@ void loop() {
   Serial.println(" ppm");
 
   // Luftkvalitet vurdering
-  if (ppm > 1500 || oxygenData < 19.5) {
+  if (ppm > 1333 || oxygenData < 18.5) {
     Serial.println("Luftkvalitet: DÅRLIG");
     u8g2.drawStr(10, 30, "DÅRLIG LUFT!!!");
     digitalWrite(BUZZER_PIN, HIGH);
@@ -257,7 +257,7 @@ void loop() {
   client.loop();
   
   if (millis() - lastPublishTime >= PUBLISH_INTERVAL) {
-    publishSensorData(oxygenData, ppm);//ÆNDRE DATA
+    publishSensorData(oxygenData, ppm);
     lastPublishTime = millis();
   }
 
