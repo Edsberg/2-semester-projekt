@@ -217,12 +217,11 @@ void loop() {
   // Spænding
   float voltage = rawValue * (3.3 / 4095.0);
 
-  float ppm = map(rawValue, 3000, 4095, 400, 5000);
+  float ppm = map(rawValue, 3000, 4095, 1000, 5000);
 
-    // Minimum realistisk værdi
-  if (ppm < 400) {
-      ppm = 400;
-  }
+  // Begræns værdierne
+  if (ppm < 400) ppm = 400;
+  if (ppm > 5000) ppm = 5000;
 
   Serial.print("Estimeret CO2: ");
   Serial.print(ppm);
