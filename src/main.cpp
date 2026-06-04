@@ -27,7 +27,7 @@ const char* SSID = "iPhone";
 const char* PASSWORD = "bamse123";
 
 // MQTT broker settings
-const char* MQTT_BROKER = "172.20.10.3";
+const char* MQTT_BROKER = "172.20.10.7";
 const int MQTT_PORT = 1883;
 const char* MQTT_TOPIC = "edge_device";
 
@@ -228,7 +228,7 @@ void loop() {
   Serial.println(" ppm");
 
   // Luftkvalitet vurdering
-  if (ppm > 1333 || oxygenData < 18.5) {
+  if (ppm > 1111 || oxygenData < 19.5) {
     Serial.println("Luftkvalitet: DÅRLIG");
     u8g2.drawStr(10, 30, "DÅRLIG LUFT!!!");
     digitalWrite(BUZZER_PIN, HIGH);
